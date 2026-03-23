@@ -3,113 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maîtrise les cas allemands | Deutsch-Kurse</title>
-    <link rel="stylesheet" href="/deutsch-kurse/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto+Slab&display=swap" rel="stylesheet">
+    <title>Apprendre les cas allemands</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #0056b3;
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #0056b3;
+            color: white;
+        }
+        .exercice {
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin: 20px 0;
+        }
+        button {
+            background: #0056b3;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #003d7a;
+        }
+        .feedback {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        .correct {
+            color: green;
+        }
+        .incorrect {
+            color: red;
+        }
+    </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <h1>🇩🇪 Maîtrise les cas allemands</h1>
-        <p>Nominatif, Accusatif, Datif, Génitif : enfin compris !</p>
-    </header>
+    <div class="container">
+        <h1>🇩🇪 Apprendre les cas allemands</h1>
+        
+        <section class="exercice">
+            <h2>1. Complète avec l'article correct (Akkusativ)</h2>
+            <p>Ich sehe ___ Mann. <input type="text" id="reponse1" placeholder="ton article"> <button onclick="verifier('reponse1', 'den')">Vérifier</button></p>
+            <p class="feedback" id="feedback1"></p>
+        </section>
+        
+        <section class="exercice">
+            <h2>2. Complète avec l'article correct (Dativ)</h2>
+            <p>Ich gebe ___ Frau das Buch. <input type="text" id="reponse2" placeholder="ton article"> <button onclick="verifier('reponse2', 'der')">Vérifier</button></p>
+            <p class="feedback" id="feedback2"></p>
+        </section>
+        
+        <section>
+            <h2>Tableau des articles définis</h2>
+            <table>
+                <tr>
+                    <th>Cas</th>
+                    <th>Masculin</th>
+                    <th>Féminin</th>
+                    <th>Neutre</th>
+                    <th>Pluriel</th>
+                </tr>
+                <tr>
+                    <td>Nominativ</td>
+                    <td>der</td>
+                    <td>die</td>
+                    <td>das</td>
+                    <td>die</td>
+                </tr>
+                <tr>
+                    <td>Akkusativ</td>
+                    <td>den</td>
+                    <td>die</td>
+                    <td>das</td>
+                    <td>die</td>
+                </tr>
+                <tr>
+                    <td>Dativ</td>
+                    <td>dem</td>
+                    <td>der</td>
+                    <td>dem</td>
+                    <td>den</td>
+                </tr>
+                <tr>
+                    <td>Genitiv</td>
+                    <td>des</td>
+                    <td>der</td>
+                    <td>des</td>
+                    <td>der</td>
+                </tr>
+            </table>
+        </section>
+    </div>
 
-    <!-- Section Accueil -->
-    <section id="accueil" class="section">
-        <h2>Apprends les cas allemands sans prise de tête</h2>
-        <p>Tu galères avec les <strong>der/die/das</strong> qui changent tout le temps ? Ici, on t’explique <strong>clairement</strong> comment ça marche, avec des exemples, des tableaux et des exercices interactifs.</p>
-        <button id="commencer-btn">Commencer →</button>
-    </section>
-
-    <!-- Section Les 4 cas -->
-    <section id="cas" class="section">
-        <h2>📚 Les 4 cas allemands</h2>
-        <div class="cas-container">
-            <!-- Exemple pour un cas (à dupliquer pour les 4) -->
-            <div class="cas-card">
-                <h3>🔹 Nominatif (Nominativ)</h3>
-                <p>Utilisé pour le <strong>sujet</strong> de la phrase.</p>
-                <table>
-                    <tr><th>Genre</th><th>Singulier</th><th>Pluriel</th></tr>
-                    <tr><td>Masculin</td><td>der</td><td>die</td></tr>
-                    <tr><td>Féminin</td><td>die</td><td>die</td></tr>
-                    <tr><td>Neutre</td><td>das</td><td>die</td></tr>
-                </table>
-                <p><strong>Exemple :</strong> <em>Der Mann (l’homme) liest.</em></p>
-                <button class="quiz-btn" data-cas="nominatif">Mini-quiz →</button>
-            </div>
-            <!-- Ajoute les 3 autres cas (Akkusativ, Dativ, Genitiv) ici -->
-        </div>
-    </section>
-
-    <!-- Section Déclinaison des adjectifs -->
-    <section id="adjectifs" class="section">
-        <h2>🎨 Déclinaison des adjectifs</h2>
-        <div class="schema-container">
-            <div class="schema-card">
-                <h3>1. Après un article défini</h3>
-                <p>Terminaison : <strong>-e, -en</strong></p>
-                <p><strong>Exemple :</strong> <em>der <span class="adj">groß<span class="term">e</span></span> Mann</em></p>
-            </div>
-            <div class="schema-card">
-                <h3>2. Après un article indéfini</h3>
-                <p>Terminaison : <strong>-er, -es, -en</strong></p>
-                <p><strong>Exemple :</strong> <em>ein <span class="adj">groß<span class="term">er</span></span> Mann</em></p>
-            </div>
-            <div class="schema-card">
-                <h3>3. Sans article</h3>
-                <p>Terminaison : <strong>-er, -es, -e</strong></p>
-                <p><strong>Exemple :</strong> <em><span class="adj">Groß<span class="term">er</span></span> Mann</em></p>
-            </div>
-        </div>
-        <button id="exercice-adj-btn">S’entraîner →</button>
-    </section>
-
-    <!-- Section IA Tutor -->
-    <section id="ia-tutor" class="section">
-        <h2>🤖 Ton tuteur IA</h2>
-        <div class="chat-container">
-            <div id="chat-messages" class="chat-messages">
-                <div class="message ia">Salut ! Pose-moi tes questions sur les cas allemands ou les adjectifs. 😊</div>
-            </div>
-            <div class="chat-input">
-                <input type="text" id="user-message" placeholder="Ex: 'Pourquoi on dit "dem Mann" et pas "den Mann" ?'">
-                <button id="send-btn">Envoyer</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section Entraînement -->
-    <section id="entrainement" class="section">
-        <h2>💪 Entraînement</h2>
-        <div id="exercice-container">
-            <!-- Exercice généré dynamiquement -->
-            <div class="exercice">
-                <p>Complète la phrase : <em>Ich sehe ___ <input type="text" class="reponse" data-correct="den"> Mann.</em></p>
-                <button class="corriger-btn">Vérifier</button>
-                <p class="feedback"></p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section Progression -->
-    <section id="progression" class="section">
-        <h2>📊 Ta progression</h2>
-        <div class="stats-container">
-            <div class="stat-card">
-                <h3>Nominatif</h3>
-                <div class="progress-bar"><div class="progress" style="width: 70%;"></div></div>
-                <p>70% maîtrisé</p>
-            </div>
-            <!-- Ajoute les autres cas ici -->
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <p>© 2026 Deutsch-Kurse | Un projet pour les francophones qui aiment l’allemand.</p>
-    </footer>
-
-    <script src="/deutsch-kurse/script.js"></script>
+    <script>
+        function verifier(id, bonneReponse) {
+            const reponse = document.getElementById(id).value;
+            const feedback = document.getElementById(`feedback${id.slice(-1)}`);
+            
+            if (reponse.toLowerCase() === bonneReponse) {
+                feedback.textContent = "✅ Correct !";
+                feedback.className = "feedback correct";
+            } else {
+                feedback.textContent = `❌ Faux. La bonne réponse est : ${bonneReponse}`;
+                feedback.className = "feedback incorrect";
+            }
+        }
+    </script>
 </body>
 </html>
